@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Password Generator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="relative min-h-screen bg-black text-white flex items-center justify-center overflow-hidden">
+
+  <!-- Background Video -->
+  <video autoplay loop muted class="absolute w-full h-full object-cover z-0">
+    <source src="./assets/bg.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Password Generator Box -->
+  <div class="z-10 bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-8 max-w-md w-full shadow-xl text-white border border-white border-opacity-20">
+
+    <h2 class="text-2xl font-bold mb-6 text-center">🔐 Password Generator</h2>
+
+    <label class="block mb-4 text-sm">
+      Password Length:
+      <input type="number" id="length" min="4" max="32" placeholder="Enter length"
+        class="w-full mt-1 p-2 rounded bg-white bg-opacity-20 text-white border border-white border-opacity-30 focus:outline-none focus:ring-2 focus:ring-blue-400"/>
+    </label>
+
+    <div class="space-y-2 text-sm mb-6">
+      <label class="flex items-center gap-2">
+        <input type="checkbox" id="uppercase" checked class="accent-blue-500" />
+        Include Uppercase
+      </label>
+      <label class="flex items-center gap-2">
+        <input type="checkbox" id="lowercase" checked class="accent-green-500" />
+        Include Lowercase
+      </label>
+      <label class="flex items-center gap-2">
+        <input type="checkbox" id="numbers" checked class="accent-yellow-500" />
+        Include Numbers
+      </label>
+      <label class="flex items-center gap-2">
+        <input type="checkbox" id="symbols" class="accent-pink-500" />
+        Include Symbols
+      </label>
+    </div>
+
+    <!-- Generate Button -->
+    <button onclick="generatePassword()"
+      class="w-full bg-gradient-to-r from-pink-500 to-blue-500 text-white py-2 rounded-md font-semibold transition hover:scale-105 duration-200">
+      Generate Password
+    </button>
+
+    <!-- Password Output -->
+    <p id="result" class="mt-4 text-center text-lg font-mono break-all"></p>
+
+    <!-- Copy Button -->
+    <button onclick="CopyPassword()"
+      class="w-full bg-gradient-to-r from-pink-500 to-blue-500 text-white py-2 rounded-md font-semibold transition hover:scale-105 duration-200">
+      Copy To ClipBoard
+    </button>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
